@@ -15,7 +15,7 @@ let firstResponse = readLine(stripNewline: true)
 //    case firstResponse.rangeOfString(".") != nil:
 //        let firstInput = Double(firstResponse!)
 //    default:
-        let firstInput = Int(firstResponse!)
+        let firstInput = Int((firstResponse)!)
 //}
 
 var operation = readLine(stripNewline: true)
@@ -63,12 +63,12 @@ if operation == "+" {
 } else if operation == "fact"{
     result = factorial(firstInput!)
 } else {
-    counts.append(Int(operation!)!)
+    counts.append(Int(firstInput!))
     while operation != "count" || operation != "avg" {
-        operation = readLine(stripNewline: true)
         counts.append(Int(operation!)!)
+        operation = readLine(stripNewline: true)
     }
-        
+    print("broke out")
     if operation == "count" {
         result = counts.count
     }
@@ -84,9 +84,6 @@ if operation == "+" {
 
 
 print("Result: \(result)")
-
-
-//let operationExtended = readLine(stripNewline: true)
 
 
 
