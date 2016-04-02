@@ -13,44 +13,10 @@ print("Enter an expression separated by returns:")
 let firstResponse = readLine(stripNewline: true)
 let firstInput = Int(firstResponse!)
 
-let operationBasic = readLine(stripNewline: true)
+let operation = readLine(stripNewline: true)
 
 let secondResponse = readLine(stripNewline: true)
 let secondInput = Int(secondResponse!)
-
-var result = 0
-
-if operationBasic == "+" {
-    result = firstInput! + secondInput!
-} else if operationBasic == "-" {
-    result = firstInput! - secondInput!
-} else if operationBasic == "*" {
-    result = firstInput! * secondInput!
-} else if operationBasic == "/" {
-    result = firstInput! / secondInput!
-} else if operationBasic == "%" {
-    result = firstInput! % secondInput!
-} else {
-    print("")
-}
-print("Result: \(result)")
-
-
-//let operationExtended = readLine(stripNewline: true)
-
-
-func count() -> Int {
-    var count = 0
-    while (readLine(stripNewline: true) != nil) {
-        let countResponse = readLine(stripNewline: true)
-        let countInput = Int(countResponse!)
-        count += countInput!
-    }
-    return count
-}
-
-
-
 
 func factorial(x: Int) -> Int {
     if x == 1 {
@@ -59,3 +25,54 @@ func factorial(x: Int) -> Int {
         return x * factorial(x - 1)
     }
 }
+
+func sum(counts: Int) -> Int {
+    var total = 0
+    for var i = 0; i < sum.count; i++  {
+        total += counts(i)
+    }
+    return total
+}
+
+
+var result = 0
+var counts = [Int]()
+if operation == "+" {
+    result = firstInput! + secondInput!
+} else if operation == "-" {
+    result = firstInput! - secondInput!
+} else if operation == "*" {
+    result = firstInput! * secondInput!
+} else if operation == "/" {
+    result = firstInput! / secondInput!
+} else if operation == "%" {
+    result = firstInput! % secondInput!
+} else if operation == "fact"{
+    result = factorial(firstInput!)
+}
+else {
+    while operation != "count" || operation != "avg" {
+        let response = readLine(stripNewline: true)
+        counts.append(Int(response!)!)
+    }
+    if operation == "count" {
+        result = counts.count
+    }
+    
+    if operation == "avg" {
+        let numerator = sum(counts)
+        let divisor = counts.count
+        
+        result = numerator / divisor
+    }
+}
+print("Result: \(result)")
+
+
+//let operationExtended = readLine(stripNewline: true)
+
+
+
+
+
+
