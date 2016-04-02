@@ -22,3 +22,23 @@ let secondInput = Int(secondResponse!)
 
 
 //let operationExtended = readLine(stripNewline: true)
+
+
+func count() -> Int {
+    var count = 0
+    while (readLine(stripNewline: true) != nil) {
+        let countResponse = readLine(stripNewline: true)
+        let countInput = Int(countResponse!)
+        count += countInput!
+    }
+    return count
+}
+
+
+func factorial(x: Int) -> Int {
+    if x == 1 {
+        return 1
+    } else {
+        return x * factorial(x - 1)
+    }
+}
