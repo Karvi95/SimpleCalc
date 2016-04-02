@@ -11,12 +11,14 @@ import Foundation
 print("Enter an expression separated by returns:")
 
 let firstResponse = readLine(stripNewline: true)
-let firstInput = Int(firstResponse!)
+//switch firstResponse {
+//    case firstResponse.rangeOfString(".") != nil:
+//        let firstInput = Double(firstResponse!)
+//    default:
+        let firstInput = Int(firstResponse!)
+//}
 
-let operation = readLine(stripNewline: true)
-
-let secondResponse = readLine(stripNewline: true)
-let secondInput = Int(secondResponse!)
+var operation = readLine(stripNewline: true)
 
 func factorial(x: Int) -> Int {
     if x == 1 {
@@ -26,35 +28,47 @@ func factorial(x: Int) -> Int {
     }
 }
 
-func sum(counts: Int) -> Int {
+func sum(counts: [Int]) -> Int {
     var total = 0
-    for var i = 0; i < sum.count; i++  {
-        total += counts(i)
+    for var i = 0; i < counts.count; i++  {
+        total += counts[i]
     }
     return total
 }
 
-
 var result = 0
 var counts = [Int]()
+
+
 if operation == "+" {
+    let secondResponse = readLine(stripNewline: true)
+    let secondInput = Int(secondResponse!)
     result = firstInput! + secondInput!
 } else if operation == "-" {
+    let secondResponse = readLine(stripNewline: true)
+    let secondInput = Int(secondResponse!)
     result = firstInput! - secondInput!
 } else if operation == "*" {
+    let secondResponse = readLine(stripNewline: true)
+    let secondInput = Int(secondResponse!)
     result = firstInput! * secondInput!
 } else if operation == "/" {
+    let secondResponse = readLine(stripNewline: true)
+    let secondInput = Int(secondResponse!)
     result = firstInput! / secondInput!
 } else if operation == "%" {
+    let secondResponse = readLine(stripNewline: true)
+    let secondInput = Int(secondResponse!)
     result = firstInput! % secondInput!
 } else if operation == "fact"{
     result = factorial(firstInput!)
-}
-else {
+} else {
+    counts.append(Int(operation!)!)
     while operation != "count" || operation != "avg" {
-        let response = readLine(stripNewline: true)
-        counts.append(Int(response!)!)
+        operation = readLine(stripNewline: true)
+        counts.append(Int(operation!)!)
     }
+        
     if operation == "count" {
         result = counts.count
     }
@@ -66,6 +80,9 @@ else {
         result = numerator / divisor
     }
 }
+    
+
+
 print("Result: \(result)")
 
 
