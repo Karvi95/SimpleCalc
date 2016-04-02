@@ -64,11 +64,10 @@ if operation == "+" {
     result = factorial(firstInput!)
 } else {
     counts.append(Int(firstInput!))
-    while operation != "count" || operation != "avg" {
+    while operation != "count" && operation != "avg" {
         counts.append(Int(operation!)!)
         operation = readLine(stripNewline: true)
     }
-    print("broke out")
     if operation == "count" {
         result = counts.count
     }
