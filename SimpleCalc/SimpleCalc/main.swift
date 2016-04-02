@@ -18,7 +18,22 @@ let operationBasic = readLine(stripNewline: true)
 let secondResponse = readLine(stripNewline: true)
 let secondInput = Int(secondResponse!)
 
+var result = 0
 
+if operationBasic == "+" {
+    result = firstInput! + secondInput!
+} else if operationBasic == "-" {
+    result = firstInput! - secondInput!
+} else if operationBasic == "*" {
+    result = firstInput! * secondInput!
+} else if operationBasic == "/" {
+    result = firstInput! / secondInput!
+} else if operationBasic == "%" {
+    result = firstInput! % secondInput!
+} else {
+    print("")
+}
+print("Result: \(result)")
 
 
 //let operationExtended = readLine(stripNewline: true)
@@ -33,6 +48,8 @@ func count() -> Int {
     }
     return count
 }
+
+
 
 
 func factorial(x: Int) -> Int {
