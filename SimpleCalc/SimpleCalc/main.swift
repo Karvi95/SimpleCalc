@@ -8,5 +8,17 @@
 
 import Foundation
 
-print("Hello, World!")
+print("Enter an expression separated by returns:")
 
+let firstResponse = readLine(stripNewline: true)
+let firstInput = Int(firstResponse!)
+
+let operationBasic = readLine(stripNewline: true)
+
+let secondResponse = readLine(stripNewline: true)
+let secondInput = Int(secondResponse!)
+
+
+
+
+//let operationExtended = readLine(stripNewline: true)
