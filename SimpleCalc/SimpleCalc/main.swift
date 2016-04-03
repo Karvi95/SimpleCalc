@@ -12,10 +12,10 @@ print("Enter an expression separated by returns:")
 
 let firstResponse = readLine(stripNewline: true)
 //switch firstResponse {
-//    case firstResponse.rangeOfString(".") != nil:
+//    case firstResponse!.characters.indexOf(".") != nil :
 //        let firstInput = Double(firstResponse!)
 //    default:
-        let firstInput = Int((firstResponse)!)
+    let firstInput = Int((firstResponse)!)
 //}
 
 var operation = readLine(stripNewline: true)
@@ -79,13 +79,7 @@ if operation == "+" {
         result = numerator / divisor
     }
 }
-    
-
 
 print("Result: \(result)")
-
-
-
-
 
 
