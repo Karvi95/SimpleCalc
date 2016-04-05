@@ -15,68 +15,67 @@ let firstResponse = readLine(stripNewline: true)
 //    case firstResponse!.characters.indexOf(".") != nil :
 //        let firstInput = Double(firstResponse!)
 //    default:
-    let firstInput = Int((firstResponse)!)
+    let firstInput = UInt.init(firstResponse!)!
 //}
 
 var operation = readLine(stripNewline: true)
 
-func factorial(x: Int) -> Int {
+func factorial(x: Int) -> UInt {
     if x == 1 {
         return 1
     } else {
-        return x * factorial(x - 1)
+        return (UInt(x) * UInt(factorial(x - 1)))
     }
 }
 
-func sum(counts: [Int]) -> Int {
+func sum(counts: [Int]) -> UInt {
     var total = 0
     for var i = 0; i < counts.count; i++  {
         total += counts[i]
     }
-    return total
+    return UInt(total)
 }
 
-var result = 0
+var result = UInt.min
 var counts = [Int]()
-
 
 if operation == "+" {
     let secondResponse = readLine(stripNewline: true)
-    let secondInput = Int(secondResponse!)
-    result = firstInput! + secondInput!
+    let secondInput = UInt.init(secondResponse!)!
+    result = firstInput + secondInput
 } else if operation == "-" {
     let secondResponse = readLine(stripNewline: true)
-    let secondInput = Int(secondResponse!)
-    result = firstInput! - secondInput!
+    let secondInput = UInt.init(secondResponse!)!
+    result = firstInput - secondInput
 } else if operation == "*" {
     let secondResponse = readLine(stripNewline: true)
-    let secondInput = Int(secondResponse!)
-    result = firstInput! * secondInput!
+    let secondInput = UInt.init(secondResponse!)!
+    result = firstInput * secondInput
 } else if operation == "/" {
     let secondResponse = readLine(stripNewline: true)
-    let secondInput = Int(secondResponse!)
-    result = firstInput! / secondInput!
+    let secondInput = UInt.init(secondResponse!)!
+    result = firstInput / secondInput
 } else if operation == "%" {
     let secondResponse = readLine(stripNewline: true)
-    let secondInput = Int(secondResponse!)
-    result = firstInput! % secondInput!
-} else if operation == "fact"{
-    result = factorial(firstInput!)
+    let secondInput = UInt.init(secondResponse!)!
+    result = firstInput % secondInput
+} else if operation == "fact" {
+    result = factorial(Int(firstInput))
 } else {
-    counts.append(Int(firstInput!))
+    counts.append(Int(firstInput))
     while operation != "count" && operation != "avg" {
         counts.append(Int(operation!)!)
         operation = readLine(stripNewline: true)
     }
     if operation == "count" {
-        result = counts.count
+        result = UInt(counts.count)
     }
     
     if operation == "avg" {
         let numerator = sum(counts)
         let divisor = counts.count
         
-        result = numerator / divisor
+        result = UInt(numerator) / UInt(divisor)
     }
 }
 
